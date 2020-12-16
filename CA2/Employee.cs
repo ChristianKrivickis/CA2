@@ -12,11 +12,6 @@ namespace CA2
         public string LastName { get; set; }
         public string Status { get; set; }
 
-        public Employee()
-        {
-
-        }
-
         public Employee(string FirstName, string LastName, string Status)
         {
             this.FirstName = FirstName;
@@ -24,7 +19,7 @@ namespace CA2
             this.Status = Status;
         }
 
-        public abstract decimal CalculateMonthlyPay();
+        //public abstract decimal CalculateMonthlyPay();
 
         public override string ToString()
         {
@@ -42,16 +37,10 @@ namespace CA2
             this.Salary = Salary;
         }
 
-        public override decimal CalculateMonthlyPay()
+        /*public override decimal CalculateMonthlyPay()
         {
             return Salary / 12;
-        }
-
-        public override string ToString()
-        {
-            return string.Format($"{base.ToString()} Salary {Salary}");
-        }
-
+        }*/
     }
 
 
@@ -66,15 +55,12 @@ namespace CA2
             this.HoursWorked = HoursWorked;
         }
 
-        public override void CalculateMonthlyPay()
+        /*public override void CalculateMonthlyPay()
         {
-            //HourlyRate * HoursWorked;
-        }
+            HourlyRate * HoursWorked;
+        }*/
 
-        public override string ToString()
-        {
-            return string.Format($"{base.ToString()} Hourly Rate {HourlyRate} Hours Worked {HoursWorked}");
-        }
+        
 
     }
 }
