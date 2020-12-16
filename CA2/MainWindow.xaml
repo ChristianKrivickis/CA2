@@ -24,7 +24,7 @@
         <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="596,213,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="596,152,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="596,257,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="textBlockMonthlyPay" HorizontalAlignment="Left" Margin="281,374,0,0" TextWrapping="Wrap" Text="MonthlyPay" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockMonthlyPay" HorizontalAlignment="Left" Margin="281,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223"><Run Text="Monthly Pay"/><LineBreak/><Run/></TextBlock>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="278" Margin="27,112,0,0" VerticalAlignment="Top" Width="187" SelectionChanged="listBox_SelectionChanged"/>
         <RadioButton x:Name="radioButtonFT" Content="FT" HorizontalAlignment="Left" Margin="384,198,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButtonPT" Content="PT" HorizontalAlignment="Left" Margin="472,198,0,0" VerticalAlignment="Top"/>

@@ -48,6 +48,8 @@ namespace CA2
             textBoxSalary.Clear();
             textBoxHourlyRate.Clear();
             textBoxHoursWorked.Clear();
+            radioButtonPT.IsChecked = false;
+            radioButtonFT.IsChecked = false;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -62,6 +64,8 @@ namespace CA2
                 textBoxSalary.Clear();
                 textBoxHourlyRate.Text = selectedPT.HourlyRate.ToString();
                 textBoxHoursWorked.Text = selectedPT.HoursWorked.ToString();
+                radioButtonPT.IsChecked = true;
+                radioButtonFT.IsChecked = false;
             }
 
             if (selectedFT != null)
@@ -71,6 +75,8 @@ namespace CA2
                 textBoxSalary.Text = selectedFT.Salary.ToString();
                 textBoxHourlyRate.Clear();
                 textBoxHoursWorked.Clear();
+                radioButtonPT.IsChecked = false;
+                radioButtonFT.IsChecked = true;
             }
         }
     }
