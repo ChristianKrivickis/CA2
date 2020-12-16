@@ -79,5 +79,27 @@ namespace CA2
                 radioButtonFT.IsChecked = true;
             }
         }
+
+        // Not Working
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string FirstName = textBoxFirstName.Text;
+            string Surname = textBoxSurname.Text;
+            decimal Salary = Convert.ToDecimal(textBoxSalary.Text);
+            double HoursWorked = Convert.ToDouble(textBoxHoursWorked);
+            decimal HourlyRate = Convert.ToDecimal(textBoxHourlyRate.Text);
+            
+            if (radioButtonFT.IsChecked == true)
+            {
+                FullTimeEmployee FTEmployee = new FullTimeEmployee(FirstName, Surname, "Full Time", Salary);
+                employees.Add(FTEmployee);
+            }
+
+            else
+            {
+                PartTimeEmployee PTEmployee = new PartTimeEmployee(FirstName, Surname, "Part Time", HourlyRate, HoursWorked);
+                employees.Add(PTEmployee);
+            }
+        }
     }
 }
