@@ -22,11 +22,11 @@
         <TextBlock x:Name="textBlockSalary" HorizontalAlignment="Left" Margin="281,235,0,0" TextWrapping="Wrap" Text="Salary" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockHoursWorked" HorizontalAlignment="Left" Margin="281,279,0,0" TextWrapping="Wrap" Text="Hours Worked" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockHourlyRate" HorizontalAlignment="Left" Margin="281,328,0,0" TextWrapping="Wrap" Text="Hourly Rate" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="384,109,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="384,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="384,228,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="384,272,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="384,321,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="23" Margin="384,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxSurname" HorizontalAlignment="Left" Height="23" Margin="384,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxSalary" HorizontalAlignment="Left" Height="23" Margin="384,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxHoursWorked" HorizontalAlignment="Left" Height="23" Margin="384,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxHourlyRate" HorizontalAlignment="Left" Height="23" Margin="384,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="596,112,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Left" Margin="596,213,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="buttonAdd" Content="Add" HorizontalAlignment="Left" Margin="596,152,0,0" VerticalAlignment="Top" Width="75"/>
