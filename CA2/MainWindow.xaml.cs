@@ -30,8 +30,8 @@ namespace CA2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             PartTimeEmployee pt1 = new PartTimeEmployee("Jane", "Jones", "Part Time", 10, 15);
-            FullTimeEmployee ft1 = new FullTimeEmployee("Joe", "Murphy", "Full Time", 24000);
             PartTimeEmployee pt2 = new PartTimeEmployee("John", "Smith", "Part Time", 15, 14);
+            FullTimeEmployee ft1 = new FullTimeEmployee("Joe", "Murphy", "Full Time", 24000);
             FullTimeEmployee ft2 = new FullTimeEmployee("Jess", "Walsh", "Full Time", 25000);
 
             employees.Add(pt1);
@@ -39,7 +39,7 @@ namespace CA2
             employees.Add(pt2);
             employees.Add(ft2);
 
-            listBox.ItemsSource = employees;
+            //listBox.ItemsSource = employees;
         }
 
         public void buttonClear_Click(object sender, RoutedEventArgs e)
@@ -72,7 +72,7 @@ namespace CA2
                 radioButtonFT.IsChecked = false;
             }
 
-            if (selectedFT != null)
+            else if (selectedFT != null)
             {
                 textBoxFirstName.Text = selectedFT.FirstName;
                 textBoxSurname.Text = selectedFT.LastName;
@@ -107,6 +107,7 @@ namespace CA2
                 PartTimeEmployee PTEmployee = new PartTimeEmployee(FirstName, Surname, "Part Time", HourlyRate, HoursWorked);
                 employees.Add(PTEmployee);
             }
+            Filter();
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
@@ -114,6 +115,7 @@ namespace CA2
             Employee selectedEmployee = (Employee)listBox.SelectedItem;
             employees.Remove(selectedEmployee);
 
+            // After selected employee is deleted - All info is cleared from the textboxes/ blocks
             textBoxFirstName.Clear();
             textBoxSurname.Clear();
             textBoxSalary.Clear();
@@ -122,7 +124,60 @@ namespace CA2
             textBlockMonthlyPay.Text = "";
             radioButtonPT.IsChecked = false;
             radioButtonFT.IsChecked = false;
+
+            Filter();
         }
 
+        private void checkBox_Click(object sender, RoutedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void Filter()
+        {
+            filteredEmployees.Clear();
+            listBox.ItemsSource = null;
+
+            if (checkBoxPT.IsChecked == true)
+            {
+
+                foreach (Employee employee in employees)
+                {
+                    if (employee is PartTimeEmployee)
+                    {
+                        filteredEmployees.Add(employee);
+                    }
+                }
+                listBox.ItemsSource = filteredEmployees;
+
+            }
+
+
+            if (checkBoxFT.IsChecked == true)
+            {
+
+                foreach (Employee employee in employees)
+                {
+                    if (employee is FullTimeEmployee)
+                    {
+                        filteredEmployees.Add(employee);
+                    }
+                }
+                listBox.ItemsSource = filteredEmployees;
+
+            }
+
+            if (checkBoxFT.IsChecked == false && checkBoxPT.IsChecked == false)
+            {
+                foreach (Employee employee in employees)
+                {
+                    if (employee is Employee)
+                    {
+                        filteredEmployees.Add(employee);
+                    }
+                }
+                listBox.ItemsSource = filteredEmployees;
+            }
+        }
     }
 }
