@@ -19,7 +19,8 @@ namespace CA2
 
     public partial class MainWindow : Window
     {
-        ObservableCollection<Employee> employees = new ObservableCollection<Employee>(); 
+        ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+        ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
 
         public MainWindow()
         {
@@ -41,13 +42,14 @@ namespace CA2
             listBox.ItemsSource = employees;
         }
 
-        private void buttonClear_Click(object sender, RoutedEventArgs e)
+        public void buttonClear_Click(object sender, RoutedEventArgs e)
         {
             textBoxFirstName.Clear();
             textBoxSurname.Clear();
             textBoxSalary.Clear();
             textBoxHourlyRate.Clear();
             textBoxHoursWorked.Clear();
+            textBlockMonthlyPay.Text = "";
             radioButtonPT.IsChecked = false;
             radioButtonFT.IsChecked = false;
         }
@@ -56,6 +58,7 @@ namespace CA2
         {
             PartTimeEmployee selectedPT = listBox.SelectedItem as PartTimeEmployee;
             FullTimeEmployee selectedFT = listBox.SelectedItem as FullTimeEmployee;
+            Employee selectedEmployee = (Employee)listBox.SelectedItem;
 
             if (selectedPT != null)
             {
@@ -64,6 +67,7 @@ namespace CA2
                 textBoxSalary.Clear();
                 textBoxHourlyRate.Text = selectedPT.HourlyRate.ToString();
                 textBoxHoursWorked.Text = selectedPT.HoursWorked.ToString();
+                textBlockMonthlyPay.Text = selectedEmployee.CalculateMonthlyPay().ToString();
                 radioButtonPT.IsChecked = true;
                 radioButtonFT.IsChecked = false;
             }
@@ -73,6 +77,7 @@ namespace CA2
                 textBoxFirstName.Text = selectedFT.FirstName;
                 textBoxSurname.Text = selectedFT.LastName;
                 textBoxSalary.Text = selectedFT.Salary.ToString();
+                textBlockMonthlyPay.Text = selectedEmployee.CalculateMonthlyPay().ToString();
                 textBoxHourlyRate.Clear();
                 textBoxHoursWorked.Clear();
                 radioButtonPT.IsChecked = false;
@@ -85,21 +90,39 @@ namespace CA2
         {
             string FirstName = textBoxFirstName.Text;
             string Surname = textBoxSurname.Text;
-            decimal Salary = Convert.ToDecimal(textBoxSalary.Text);
-            double HoursWorked = Convert.ToDouble(textBoxHoursWorked);
-            decimal HourlyRate = Convert.ToDecimal(textBoxHourlyRate.Text);
-            
+
             if (radioButtonFT.IsChecked == true)
             {
+                decimal Salary = Convert.ToDecimal(textBoxSalary.Text);
+
                 FullTimeEmployee FTEmployee = new FullTimeEmployee(FirstName, Surname, "Full Time", Salary);
                 employees.Add(FTEmployee);
             }
 
-            else
+            else if (radioButtonPT.IsChecked == true)
             {
+                decimal HourlyRate = Convert.ToDecimal(textBoxHourlyRate.Text);
+                double HoursWorked = Convert.ToDouble(textBoxHoursWorked.Text);
+
                 PartTimeEmployee PTEmployee = new PartTimeEmployee(FirstName, Surname, "Part Time", HourlyRate, HoursWorked);
                 employees.Add(PTEmployee);
             }
         }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Employee selectedEmployee = (Employee)listBox.SelectedItem;
+            employees.Remove(selectedEmployee);
+
+            textBoxFirstName.Clear();
+            textBoxSurname.Clear();
+            textBoxSalary.Clear();
+            textBoxHourlyRate.Clear();
+            textBoxHoursWorked.Clear();
+            textBlockMonthlyPay.Text = "";
+            radioButtonPT.IsChecked = false;
+            radioButtonFT.IsChecked = false;
+        }
+
     }
 }

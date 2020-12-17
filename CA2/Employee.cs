@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CA2
 {
-    public abstract class Employee
+    public abstract class Employee //: IComparable
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -19,7 +19,7 @@ namespace CA2
             this.Status = Status;
         }
 
-        //public abstract decimal CalculateMonthlyPay();
+        public abstract decimal CalculateMonthlyPay();
 
         public override string ToString()
         {
@@ -37,10 +37,10 @@ namespace CA2
             this.Salary = Salary;
         }
 
-        /*public override decimal CalculateMonthlyPay()
+        public override decimal CalculateMonthlyPay()
         {
             return Salary / 12;
-        }*/
+        }
     }
 
 
@@ -55,12 +55,12 @@ namespace CA2
             this.HoursWorked = HoursWorked;
         }
 
-        /*public override void CalculateMonthlyPay()
+        public override decimal CalculateMonthlyPay()
         {
-            HourlyRate * HoursWorked;
-        }*/
+            return (decimal)HoursWorked * HourlyRate;
+        }
 
-        
+
 
     }
 }
